@@ -9,4 +9,5 @@ root /var/www/html;
 Supervisord:
 
 start nginx
+
 start php-fpm
