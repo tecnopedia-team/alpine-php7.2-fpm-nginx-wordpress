@@ -181,6 +181,7 @@ COPY .docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Custom Nginx for Wordpress and PHP
 COPY .docker/nginx-custom.conf /etc/nginx/conf.d/default.conf
 COPY .docker/20-custom.ini /usr/local/etc/php/conf.d/
+COPY .docker/www.conf /usr/local/etc/php-fpm.d/
 
 RUN chown -R nginx: /var/www/html
 
