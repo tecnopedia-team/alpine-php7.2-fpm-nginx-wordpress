@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    name: wordpress
+    namespace: devops
+    labels:
+      app: wordpress
+      tier: frontend
+spec:
+  rules:
+  - host: wordpress.devops.com.br
+    http:
+      paths:
+      - backend:
+          serviceName: wordpress
+          servicePort: 80
+        path: /
+  tls:
+  - hosts:
+    - '*.devops.com.br'
+    secretName: devops-com-br
